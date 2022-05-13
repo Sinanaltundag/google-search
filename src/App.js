@@ -1,6 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-
 import './App.css';
 import Footer from './components/Footer';
 import NavBar from './components/NavBar';
@@ -12,6 +9,9 @@ function App() {
 <NavBar/>
 <Router/>
 <Footer/>
+<h1 className="text-3xl font-bold underline font-sans hover:font-serif">
+      Hello world!
+    </h1>
     </div>
   );
 }

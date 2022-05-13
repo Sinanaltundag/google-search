@@ -1,10 +1,17 @@
 import React from 'react'
-import SearchBar from '../components/SearchBar'
+import { Route, Routes } from 'react-router-dom'
+import About from '../components/About'
+import Main from '../components/Main'
+
 
 const Router = () => {
   return (
     <div>
-        <SearchBar/>
+
+<Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="about" element={<About />} />
+      </Routes>
     </div>
   )
 }
