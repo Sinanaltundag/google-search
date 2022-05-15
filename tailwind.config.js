@@ -6,4 +6,6 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  //add this to config dark mode from state instead of system
+  darkMode: 'class',
 }
