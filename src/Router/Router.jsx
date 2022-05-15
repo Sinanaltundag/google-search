@@ -13,7 +13,7 @@ const Router = () => {
   { path: "/search", element: <Results /> },
   { path: "/images", element: <Results /> },
   { path: "/news", element: <Results /> },
-  { path: "/videos", element: <Results /> },
+  { path: "/video", element: <Results /> },
   { path: "/about", element: <About /> },
   ]);
   return element
