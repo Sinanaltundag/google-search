@@ -4,8 +4,8 @@ import React from 'react'
 const SearchBar = () => {
   return (
     <div>
-        <div className="container d-flex justify-content-center">
-
+        <div className="">
+search
         </div>
     </div>
   )
