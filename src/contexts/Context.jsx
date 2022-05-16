@@ -20,8 +20,16 @@ export const ResultContextProvider = ({ children }) => {
         "X-RapidAPI-Key": RapidApiKey,
       },
     });
-    const data = await response.json();
-    setResults(data);
+    const data = await response?.json();
+console.log(data)
+if (type.includes("/news")) {
+    setResults(data.entries)
+} else if (type.includes("/image")){
+    setResults(data.image_results)
+} else {
+    setResults(data.results)
+}
+
     setIsLoading(false);
   };
   return (
