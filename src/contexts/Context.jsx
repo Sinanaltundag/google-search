@@ -1,8 +1,8 @@
 import { createContext, useContext, useState } from "react";
 
 const ResultContext = createContext();
-// const baseUrl = "https://google-search3.p.rapidapi.com/api/v1";
-const baseUrl = "";
+const baseUrl = "https://google-search3.p.rapidapi.com/api/v1";
+// const baseUrl = "";
 const RapidApiKey = process.env.REACT_APP_RapidApiKey;
 export const ResultContextProvider = ({ children }) => {
   const [results, setResults] = useState([]);

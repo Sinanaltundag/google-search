@@ -10,9 +10,12 @@ const location = useLocation()
 useEffect(() => {
   if (searchQuery !== "") {
       if (location.pathname === "/video") {
-        getResults(`/search/q=${searchQuery} videos`);
+        getResults(`/video/q=${searchQuery} videos`);
+      // } else if (location.pathname === "/news") {
+      //   getResults(`/search/q=${searchQuery}&num=20&tbm=nws`);  // rapid api solution not working
       } else {
-        getResults(`${location.pathname}/q=${searchQuery}&num=40`);
+        getResults(`${location.pathname}/q=${searchQuery}&num=20`);
+
       }
     }
   }, [searchQuery, location.pathname]);
@@ -24,7 +27,7 @@ if (isLoading) return <Loading />
 switch (location.pathname) {
   case "/search":
     return (
-      <div className="flex flex-wrap justify-between space-y-6 sm:px-56">
+      <div className="flex flex-wrap justify-between items-center space-y-6 sm:px-20">
 {results?.map(({link, title}, index)=>(
 <div key={index} className="md:w-2/5 w-full">
 <a href={link} target="_blank" rel="noreferrer">
@@ -37,7 +40,7 @@ switch (location.pathname) {
 </a>
 
 </div>
-))};
+))}
 
       </div>
     )
@@ -56,26 +59,35 @@ switch (location.pathname) {
     )
     case "/news":
       return (
-      <div className="flex flex-wrap justify-between space-y-6 sm:px-56 items-center">
-{results?.map(({links, title, source, id})=>(
-<div key={id} className="md:w-2/5 w-full">
-<a href={links?.[0].href} target="_blank" rel="noreferrer" className="hover:underline">
-  
-  <p className="text-lg dark:text-blue-300 text-blue-700" >
-{title}
-  </p>
-  <div className="flex gap-4">
-    <a href={source?.href} target="_blank" rel="noreferrer">
-      {source?.href}
-    </a>
-  </div>
-</a>
+        <div className="sm:px-20 flex flex-wrap justify-between items-center space-y-6">
+          {results?.map(({ id, links, source, title }, index) => (
+            <div key={index} className="md:w-2/5 w-full ">
+              <a
+                href={links?.[0].href}
+                target="_blank"
+                rel="noreferrer "
+                className="hover:underline "
+              >
+                <p className="text-lg dark:text-blue-300 text-blue-700">
+                  {title}
+                </p>
+              </a>
+              <div className="flex gap-4">
+                <a
+                  href={source?.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:underline hover:text-blue-300"
+                >
+                  {" "}
+                  {source?.href}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
 
-</div>
-))};
-
-      </div>
-    )
     case "/video":
     return (
       <div className="flex flex-wrap">
