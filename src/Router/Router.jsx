@@ -11,7 +11,7 @@ const Router = () => {
   const element = useRoutes([
   { path: "/", element: <Navigate to="/search" replace={true} /> },
   { path: "/search", element: <Results /> },
-  { path: "/images", element: <Results /> },
+  { path: "/image", element: <Results /> },
   { path: "/news", element: <Results /> },
   { path: "/video", element: <Results /> },
   { path: "/about", element: <About /> },
