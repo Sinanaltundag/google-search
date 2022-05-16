@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDebounce } from 'use-debounce'
 import { useResultContext } from '../contexts/Context'
-import Links from './Links'
 
 
 const SearchBar = () => {
   const [query, setQuery] = useState("")
 const {setSearchQuery}= useResultContext();
-const [debouncedValue]= useDebounce(query, 3000)
+const [debouncedValue]= useDebounce(query, 1000)
 
 useEffect(() => {
 if (debouncedValue) {
@@ -17,11 +16,11 @@ if (debouncedValue) {
 
 
   return (
-        <div className="relative sm:ml-48 md:ml-72 sm:mt-10 mt-3">
+        <div className="relative ">
         <input
         value={query}
         type="text"
-        className="sm:w-96 w-80 h-10 dark:bg-gray-200  border rounded-full shadow-sm outline-none p-6 text-black hover:shadow-lg"
+        className="sm:w-96 w-80 h-10 dark:bg-gray-800 border rounded-full shadow-sm outline-none p-6 text-black dark:text-white hover:shadow-lg"
         placeholder="🔎 Search Googlee or type URL"
         onChange={(e) => setQuery(e.target.value)}
       />
@@ -30,7 +29,6 @@ if (debouncedValue) {
           x
         </button>
         )}
-<Links/>
         </div>
   )
 }
